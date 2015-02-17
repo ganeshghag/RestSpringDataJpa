@@ -17,7 +17,7 @@ public class Person {
 	private String email;
 	private String address;
 	private String mobile;
-	private Integer employeeId;
+	private Long employeeId;
 
 	public String getFirstName() {
 		return firstName;
@@ -59,11 +59,11 @@ public class Person {
 		this.mobile = mobile;
 	}
 
-	public Integer getEmployeeId() {
+	public Long getEmployeeId() {
 		return employeeId;
 	}
 
-	public void setEmployeeId(Integer employeeId) {
+	public void setEmployeeId(Long employeeId) {
 		this.employeeId = employeeId;
 	}
 	
