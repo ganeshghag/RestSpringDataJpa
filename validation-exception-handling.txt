@@ -1,0 +1,59 @@
+If validation annotations like @NotNull or @Size(min=2, max=30) used directly to tag entity attributes
+
+REST client gets error response as follows
+
+{"timestamp":1424238615000,"status":500,"error":"Internal Server Error","exception":"javax.validation.ConstraintViolationException","message
+":"Validation failed for classes [com.ghag.rnd.rest.domain.Person] during persist time for groups [javax.validation.groups.Default, ]\nList
+of constraint violations:[\n\tConstraintViolationImpl{interpolatedMessage='size must be between 2 and 30', propertyPath=firstName, rootBeanC
+lass=class com.ghag.rnd.rest.domain.Person, messageTemplate='{javax.validation.constraints.Size.message}'}\n]","path":"/people"}
+
+
+alpha string sent in place of numeric, in a numeric field employeeId
+
+{"cause":{"cause":null,"message":"Can not construct instance of long from String value 'sdggss': not a valid Long value\n at [Source: org.ap
+ache.catalina.connector.CoyoteInputStream@1620d92; line: 1, column: 153] (through reference chain: com.ghag.rnd.rest.domain.Person[\"employe
+eId\"])"},"message":"Could not read JSON: Can not construct instance of long from String value 'sdggss': not a valid Long value\n at [Source
+: org.apache.catalina.connector.CoyoteInputStream@1620d92; line: 1, column: 153] (through reference chain: com.ghag.rnd.rest.domain.Person[\
+"employeeId\"]); nested exception is com.fasterxml.jackson.databind.exc.InvalidFormatException: Can not construct instance of long from Stri
+ng value 'sdggss': not a valid Long value\n at [Source: org.apache.catalina.connector.CoyoteInputStream@1620d92; line: 1, column: 153] (thro
+ugh reference chain: com.ghag.rnd.rest.domain.Person[\"employeeId\"])"}
+
+
+
+central exception handling, return custom http codes
+@NotNull fails
+
+Its not possible to put @Valid on a spring data jpa readymade interface based CRUD
+Only way out is have a custom controller and delegate to spring data jpa repository
+In this custom controller put a @Valid on the Person input param to enforce custom
+exception handling
+Caution: by using custom controller u will loose out on inbuilt paging, sorting, etc 
+provided by spring data jpa REST.
+But most times, you will use custom server validations for save, delete etc, which wont 
+require paging and sorting features as return values, so foregoing these for custom 
+validations is still practical.
+ 
+{"timestamp":1424255555631,"status":400,"error":"Bad Request","exception":"org.springframework.web.bind.MethodArgumentNotValidException","me
+ssage":"Validation failed for argument at index 0 in method: public com.ghag.rnd.rest.domain.Person com.ghag.rnd.rest.controllers.MyCustomCo
+ntroller.save(com.ghag.rnd.rest.domain.Person), with 1 error(s): [Field error in object 'person' on field 'lastName': rejected value [null];
+ codes [NotNull.person.lastName,NotNull.lastName,NotNull.java.lang.String,NotNull]; arguments [org.springframework.context.support.DefaultMe
+ssageSourceResolvable: codes [person.lastName,lastName]; arguments []; default message [lastName]]; default message [may not be null]] ","pa
+th":"/custom/savePerson"}
+
+
+
+
+todo
+spring security, basic auth, token based auth etc
+
+
+todo
+jpa audit, etc
+
+
+todo
+@jsonignore
+@jsonproperty
+
+
+
