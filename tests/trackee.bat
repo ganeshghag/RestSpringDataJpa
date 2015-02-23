@@ -1,0 +1,1 @@
+curl -i -X POST -H "Content-Type:application/json" --user ganesh:password -d @trackee.json http://localhost:8090/trackee
