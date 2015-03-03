@@ -6,7 +6,7 @@
 	<groupId>com.ghag.rnd.rest</groupId>
 	<artifactId>RestSpringDataJpa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>RestSpringDataJpa</name>
 	<url>http://maven.apache.org</url>
