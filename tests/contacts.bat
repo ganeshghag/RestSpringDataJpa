@@ -3,6 +3,6 @@ rem curl -i -X POST -H "Content-Type:application/json" -d {\"name\":\"ganesh\",\
 
 rem curl -i -X POST -H "Content-Type:application/json" -d @contacts.json http://localhost:8090/contacts
 
-curl -i -X POST -H "Content-Type:application/json" --user ganesh:password -d @contacts.json http://54.152.217.134:8080/contacts
+curl -i -X POST -H "Content-Type:application/json" -d @contacts.json http://54.152.217.134:8090/contacts
 
 
