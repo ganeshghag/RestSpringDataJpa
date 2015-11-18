@@ -41,6 +41,11 @@ ssageSourceResolvable: codes [person.lastName,lastName]; arguments []; default m
 th":"/custom/savePerson"}
 
 
+In summary:
+Use custom controllers for insert, save, update, delete. u can use validations and dont need pagination
+Use built-in REST controllers for entity-wise get(), getAll(), getAllForCriteria(), etc, leverage pagination
+for cross entity read-access, use custom controllers,JDBC queries, write custom pagination
+
 
 
 todo
