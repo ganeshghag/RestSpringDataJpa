@@ -1,1 +1,1 @@
-curl -i -X POST -H "Content-Type:application/json" -d @insert.cmd http://localhost:8090/custom/savePerson
+curl -i -X POST -H "Content-Type:application/json" --user ganesh:password -d @insert.cmd http://localhost:8090/custom/savePerson

@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ghag.rnd.rest.domain.Person;
 import com.ghag.rnd.rest.repository.PersonRepository;
 
-
 @RestController
 @RequestMapping("/custom")
 public class MyCustomController {
